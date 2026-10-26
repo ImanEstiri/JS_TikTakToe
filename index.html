@@ -11,24 +11,36 @@
 <canvas id="fx"></canvas>
 <main class="app">
   <h1><span>دوز</span> <b>نئون</b></h1>
-  <div class="seg" id="modes">
-    <button data-m="pvp">دو نفره</button>
-    <button data-m="easy">آسان</button>
-    <button data-m="mid">متوسط</button>
-    <button data-m="hard" class="on">شکست‌ناپذیر</button>
-  </div>
   <div class="score">
     <div class="sx"><strong id="sx">0</strong><span id="lx">X</span></div>
     <div><strong id="sd">0</strong>مساوی</div>
     <div class="so"><strong id="so">0</strong><span id="lo">O</span></div>
   </div>
   <div id="status"></div>
+  <div class="tm" id="tm"><i></i></div>
   <div class="board" id="board" data-t="X"><svg id="wl" viewBox="0 0 3 3"></svg></div>
+  <div id="pws"><div class="pw x" id="pwX"></div><div class="pw o" id="pwO"></div></div>
   <div class="acts">
     <button class="main" id="again">دور جدید</button>
-    <button id="snd">🔊 صدا</button>
+    <button id="set">⚙️ تنظیمات</button>
     <button id="rs">صفر کردن امتیاز</button>
   </div>
 </main>
+<dialog id="dlg">
+  <h2>⚙️ تنظیمات</h2>
+  <label>حریف</label>
+  <div class="seg" id="modes">
+    <button data-m="pvp">دو نفره</button><button data-m="easy">آسان</button><button data-m="mid">متوسط</button><button data-m="hard">شکست‌ناپذیر</button>
+  </div>
+  <label>ابعاد صفحه <b id="nv"></b></label>
+  <input type="range" id="n" min="3" max="9">
+  <div class="tg"><span>دوز محو‌شونده</span><input type="checkbox" id="fade"></div>
+  <div class="tg"><span>قدرت‌های ویژه</span><input type="checkbox" id="pwr"></div>
+  <div class="tg"><span>تایمر هر حرکت <select id="secs"><option>5</option><option>10</option><option>15</option><option>20</option><option>30</option></select> ثانیه</span><input type="checkbox" id="timer"></div>
+  <div class="tg"><span>لرزش و افکت ذرات</span><input type="checkbox" id="fxc"></div>
+  <div class="tg"><span>صدا</span><input type="checkbox" id="snd"></div>
+  <p class="hint">محو‌شونده: هر بازیکن حداکثر به اندازهٔ شرط برد علامت دارد و قدیمی‌ترین می‌پرد. قدرت‌ها (هر کدام یک بار در هر دور): 💥 حذف علامت حریف، 🔒 قفل یک خانه برای حرکت بعدی حریف، ⚡ حرکت دوبل. تایمر از حرکت دوم شروع می‌شود.</p>
+  <div class="acts"><button class="main" id="ok">اعمال و شروع</button><button id="cancel">بستن</button></div>
+</dialog>
 </body>
 </html>

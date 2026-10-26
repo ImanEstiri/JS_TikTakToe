@@ -3,7 +3,7 @@
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
 body{background:radial-gradient(circle at 20% 0%,var(--bg2),var(--bg) 65%) fixed;color:var(--text);font-family:Tahoma,system-ui,sans-serif;display:flex;justify-content:center;padding:16px;overflow-x:hidden}
-.app{width:100%;max-width:400px;display:flex;flex-direction:column;gap:14px;align-items:center}
+.app{width:100%;max-width:420px;display:flex;flex-direction:column;gap:14px;align-items:center}
 h1{margin:4px 0 0;font-size:28px;letter-spacing:1px;text-shadow:0 0 18px var(--x)}
 h1 span{color:var(--x)}h1 b{color:var(--o)}
 .seg{display:flex;width:100%;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:4px;gap:4px}
@@ -15,7 +15,7 @@ h1 span{color:var(--x)}h1 b{color:var(--o)}
 .score .sx strong{color:var(--x)}.score .so strong{color:var(--o)}
 #status{min-height:28px;font-size:17px;text-align:center}
 #status b{font-size:20px}.x{color:var(--x)}.o{color:var(--o)}
-.board{direction:ltr;position:relative;width:min(88vw,360px);aspect-ratio:1;display:grid;grid-template-columns:repeat(3,1fr);background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;backdrop-filter:blur(8px);box-shadow:0 10px 50px #0006,0 0 40px #00e5ff18}
+.board{direction:ltr;position:relative;width:min(92vw,400px);aspect-ratio:1;display:grid;grid-template-columns:repeat(3,1fr);background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;backdrop-filter:blur(8px);box-shadow:0 10px 50px #0006,0 0 40px #00e5ff18}
 .cell{position:relative;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:none;cursor:pointer;padding:0;font-size:60px;transition:background .2s,opacity .4s}
 .cell:empty:hover{background:#ffffff10}
 .board[data-t=X]:not(.busy) .cell:empty:hover::after{content:"✕";color:var(--x);opacity:.25}
@@ -36,3 +36,32 @@ h1 span{color:var(--x)}h1 b{color:var(--o)}
 .acts button:hover{border-color:var(--x);box-shadow:0 0 14px #00e5ff44}
 .acts .main{background:linear-gradient(135deg,var(--x),var(--o));border:0;color:#fff;font-weight:bold}
 #fx{position:fixed;inset:0;pointer-events:none;z-index:5}
+.hid{display:none!important}
+.tm{width:100%;height:8px;border-radius:6px;background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.tm i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--x),var(--o));transition:width .1s linear}
+.tm.low i{background:#ff4d4d}
+#pws{display:flex;gap:8px;width:100%}
+.pw{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:6px;display:flex;gap:4px;align-items:center;justify-content:center;flex-wrap:wrap}
+.pw b{font-size:15px}.pw.x b{color:var(--x)}.pw.o b{color:var(--o)}
+.pw button{border:1px solid var(--line);background:none;color:var(--text);border-radius:10px;padding:4px 6px;font:inherit;font-size:12px;cursor:pointer}
+.pw button:disabled{opacity:.3;cursor:default}
+.pw button.on{background:var(--win);color:#000}
+.cell.old .m{opacity:.4}
+.cell.lk{background:#ffffff14;cursor:not-allowed}
+.cell.lk::before{content:"🔒";font-size:22px;position:absolute;opacity:.8}
+.cell.lk::after{content:none!important}
+.cell.tg{animation:pulse .8s infinite;background:#ffe06633}
+.shake{animation:shake .25s}
+@keyframes shake{20%{transform:translate(-3px,2px)}40%{transform:translate(3px,-2px)}60%{transform:translate(-2px,-1px)}80%{transform:translate(2px,1px)}}
+dialog{background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:20px;width:min(92vw,400px);padding:18px;font-family:inherit}
+dialog::backdrop{background:#000a;backdrop-filter:blur(4px)}
+dialog h2{margin:0 0 6px;font-size:20px}
+dialog label,.tg{display:flex;justify-content:space-between;align-items:center;margin:12px 0 6px;font-size:14px}
+dialog .seg button{font-size:12px}
+input[type=range]{width:100%;accent-color:var(--x)}
+select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:2px}
+.tg input{appearance:none;flex:none;width:44px;height:24px;border-radius:12px;background:var(--line);position:relative;cursor:pointer;transition:.2s}
+.tg input::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+.tg input:checked{background:var(--x)}
+.tg input:checked::after{left:23px}
+.hint{font-size:12px;color:var(--mut);line-height:1.8;margin:10px 0}
