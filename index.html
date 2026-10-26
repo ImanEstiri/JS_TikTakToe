@@ -1,26 +1,34 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="assets/style.css"/>
-    <script src="assets/script.js"></script>
-    <title>Tik Tak Toe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link type="text/css" rel="stylesheet" href="assets/style.css"/>
+<script src="assets/script.js" defer></script>
+<title>دوز نئون</title>
 </head>
 <body>
-    <div id="disabled" class="disabled"></div>
-    <section class="container">
-        <div id="board" class="board">
-            <div id="b11" class="board-item" onclick="played(event)"></div>
-            <div id="b12" class="board-item" onclick="played(event)"></div>
-            <div id="b13" class="board-item" onclick="played(event)"></div>
-            <div id="b21" class="board-item" onclick="played(event)"></div>
-            <div id="b22" class="board-item" onclick="played(event)"></div>
-            <div id="b23" class="board-item" onclick="played(event)"></div>
-            <div id="b31" class="board-item" onclick="played(event)"></div>
-            <div id="b32" class="board-item" onclick="played(event)"></div>
-            <div id="b33" class="board-item" onclick="played(event)"></div>
-        </div>
-    </section>
+<canvas id="fx"></canvas>
+<main class="app">
+  <h1><span>دوز</span> <b>نئون</b></h1>
+  <div class="seg" id="modes">
+    <button data-m="pvp">دو نفره</button>
+    <button data-m="easy">آسان</button>
+    <button data-m="mid">متوسط</button>
+    <button data-m="hard" class="on">شکست‌ناپذیر</button>
+  </div>
+  <div class="score">
+    <div class="sx"><strong id="sx">0</strong><span id="lx">X</span></div>
+    <div><strong id="sd">0</strong>مساوی</div>
+    <div class="so"><strong id="so">0</strong><span id="lo">O</span></div>
+  </div>
+  <div id="status"></div>
+  <div class="board" id="board" data-t="X"><svg id="wl" viewBox="0 0 3 3"></svg></div>
+  <div class="acts">
+    <button class="main" id="again">دور جدید</button>
+    <button id="snd">🔊 صدا</button>
+    <button id="rs">صفر کردن امتیاز</button>
+  </div>
+</main>
 </body>
 </html>
